@@ -14,7 +14,7 @@ namespace ReasonsForNotWorking
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new ReasonDbInitializer());
+            //Database.SetInitializer(new ReasonDbInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

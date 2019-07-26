@@ -31,5 +31,11 @@ namespace ReasonsForNotWorking.Controllers
             db.SaveChanges();
             return personReson.PersonName + " добавлен";
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }
