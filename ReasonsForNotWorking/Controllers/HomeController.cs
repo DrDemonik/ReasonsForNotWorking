@@ -3,27 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+using ReasonsForNotWorking.Models;
 
 namespace ReasonsForNotWorking.Controllers
 {
     public class HomeController : Controller
     {
+        ReasonContext db = new ReasonContext();
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
+            IEnumerable<Reason> reasons = db.Reasons;
+            ViewBag.Reasons = reasons;
             return View();
         }
     }
