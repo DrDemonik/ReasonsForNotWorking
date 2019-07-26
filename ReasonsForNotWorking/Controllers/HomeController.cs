@@ -17,5 +17,19 @@ namespace ReasonsForNotWorking.Controllers
             ViewBag.Reasons = reasons;
             return View();
         }
+        [HttpGet]
+        public ActionResult Add(int? id)
+        {
+            ViewBag.ReasonId = id;
+            return View();
+        }
+        [HttpPost]
+        public string Add(PersonReson personReson)
+        {
+            personReson.Date = DateTime.Now;
+            db.PersonResons.Add(personReson);
+            db.SaveChanges();
+            return personReson.PersonName + " добавлен";
+        }
     }
 }
